@@ -1,0 +1,50 @@
+        <!--#if expr='v("REQUEST_URI") == "/"' -->
+        <p>
+            Добро пожаловать на возможно первое альтернативное зеркало Gravit Launcher.<br>
+            Здесь вы можете <a href="/build/">скачать релизные версии лаунчера</a> от 5.0.9 и выше.<br>
+            Также вы можете использовать данное зеркало для загрузки ассетов и клиентов которых нет на оригинальном зеркале.
+        </p>
+
+        <p>Для загрузки ассетов и клиентов с данного зеркала пропишите его адрес в свой <code>LaunchServer.json</code><br>
+        <span class="h6">Пример:</span>
+        <div id="ace" style="width: 400px; height: 88px; font-size: 14px;">{
+    "mirrors": [
+        "https://gravit-mirror.jocat.ru/"
+    ]
+}</div>
+        После скачивания, не забудьте поменять обратно на оригинальное зеркало.
+        </p>
+
+        <p><span class="h5">Благодарность</span></p>
+        <ul class="list-unstyled">
+            <li>@spinel aka ijo42 за клиент 1.12.2 с Forge 14.23.5.2825</li>
+        </ul>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.6/ace.js" integrity="sha256-CVkji/u32aj2TeC+D13f7scFSIfphw2pmu4LaKWMSY8=" crossorigin="anonymous"></script>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            var editor = ace.edit("ace");
+            editor.setTheme("ace/theme/monokai");
+            editor.getSession().setMode("ace/mode/json");
+            editor.setShowPrintMargin(false);
+            editor.setReadOnly(true);
+          });
+        </script>
+        <!--#endif -->
+    </div>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(55978318, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/55978318" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>

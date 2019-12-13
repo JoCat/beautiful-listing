@@ -1,0 +1,10 @@
+Options +Indexes
+IndexOptions FancyIndexing FoldersFirst SuppressHTMLPreamble IconsAreLinks
+IndexIgnore .htaccess footer.shtml header.shtml icns
+HeaderName /header.shtml
+ReadmeName /footer.shtml
+
+AddIcon /icns/folder.png ^^DIRECTORY^^
+AddIcon /icns/folder-home.png ..
+AddIcon /icns/zip.png .zip
+AddIcon /icns/java.png .jar
