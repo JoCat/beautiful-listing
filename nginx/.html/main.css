@@ -1,0 +1,20 @@
+.js__toggle_content {
+	display: none;
+}
+#js__listing_table {
+	margin: 2rem 0;
+    font-size: 14px;
+}
+#js__listing_table tbody {
+    font-family: monospace;
+}
+#js__listing_table img {
+    margin-right: 10px;
+}
+#js__listing_table a:hover {
+    text-decoration: none;
+}
+
+.list-unstyled {
+	padding-left: 15px;
+}
