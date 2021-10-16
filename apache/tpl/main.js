@@ -1,41 +1,54 @@
-// Show titles
-let titles = document.getElementsByClassName("js__title");
-for (let title of titles) {
-  title.innerText = location.pathname;
+// By JCat
+// Contacts: https://jocat.ru/
+
+"use strict";
+
+// Breadcrumbs
+const breadcrumbs_el = document.querySelector("#js__breadcrumbs");
+const breadcrumbs = location.pathname
+  .split("/")
+  .filter((word) => word.length > 0);
+
+breadcrumbs_el.append(get_breadcrumbs_el("/", "Home", breadcrumbs.length == 0));
+if (breadcrumbs.length > 0) {
+  let tree = "";
+  breadcrumbs.forEach((link, index) => {
+    tree += "/" + link;
+    breadcrumbs_el.append(
+      get_breadcrumbs_el(tree, link, index == breadcrumbs.length - 1)
+    );
+  });
+}
+
+function get_breadcrumbs_el(link, text, last = false) {
+  const el = document.createElement("li");
+  el.classList.add("breadcrumb-item");
+  if (last === true) {
+    el.classList.add("active");
+    el.innerHTML = text;
+    return el;
+  }
+  const a = document.createElement("a");
+  a.href = link;
+  a.innerHTML = text;
+  el.append(a);
+  return el;
 }
 
 // Toggle content
-let toggle_blocks = document.getElementsByClassName("js__toggle_content");
-for (let block of toggle_blocks) {
-  if (block.dataset.pathname == location.pathname) {
-    block.style.display = "block";
-  }
+for (let el of document.getElementsByClassName("js__toggle_content")) {
+  if (el.dataset.pathname == location.pathname) el.style.display = "block";
 }
 
-const table = document.querySelector("#js__listing table");
-const tableBody = table.children[0].children;
+// Pretty table
+const table = document.querySelector("table");
+table.classList.add("table", "table-hover");
 
-table.classList.add(
-  "table",
-  "table-hover",
-  "table",
-  "table-borderless",
-  "table-sm"
-);
+const newHeader = table.createTHead();
+const header = table.querySelector("tr");
+newHeader.append(header);
 
-const translate = ["Файл", "Дата загрузки / изменения", "Размер файла"];
-tableBody[0].childNodes[0].remove();
-tableBody[0].childNodes.forEach((v, k) => {
-  if (k == 0) v.colSpan = 2;
-  v.innerText = translate[k];
-});
-
-for (const tr of tableBody) {
-  if (tr == tableBody[0]) continue; // Да-да, это я так скипаю первую строку
-  tr.childNodes.forEach((v, k) => {
-    v.align = "left";
-    if (k == 0) {
-      v.width = "26px";
-    }
-  });
+const headers = ["Размер файла", "Дата загрузки / изменения", "Файл", ""];
+for (const el of header.children) {
+  el.innerText = headers.pop();
 }

@@ -4,10 +4,10 @@ IndexIgnore .htaccess tpl
 HeaderName /tpl/header.html
 ReadmeName /tpl/footer.html
 
-AddIcon /tpl/icons/folder.png ^^DIRECTORY^^
-AddIcon /tpl/icons/folder-home.png ..
-AddIcon /tpl/icons/zip.png .zip
-AddIcon /tpl/icons/java.png .jar
-AddIcon /tpl/icons/json.png .json
-AddIcon /tpl/icons/txt.png .cfg .txt
-DefaultIcon /tpl/icons/default.png
+AddIcon /tpl/icons/folder.svg ^^DIRECTORY^^
+AddIcon /tpl/icons/folder-home.svg ..
+AddIcon /tpl/icons/zip.svg .zip
+AddIcon /tpl/icons/java.svg .jar
+AddIcon /tpl/icons/json.svg .json
+AddIcon /tpl/icons/file-text.svg .cfg .txt
+DefaultIcon /tpl/icons/file.svg
