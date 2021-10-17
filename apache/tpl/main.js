@@ -36,9 +36,9 @@ function get_breadcrumbs_el(link, text, last = false) {
 }
 
 // Toggle content
-for (let el of document.getElementsByClassName("js__toggle_content")) {
+document.querySelectorAll(".js__toggle_content").forEach((el) => {
   if (el.dataset.pathname == location.pathname) el.style.display = "block";
-}
+});
 
 // Pretty table
 const table = document.querySelector("table");
