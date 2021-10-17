@@ -1,20 +1,76 @@
+/* By JCat */
+/* Contacts: https://jocat.ru/ */
+
+body {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  background-color: #393939;
+}
+
+.navbar a {
+  color: #eee;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  color: #ffde6b;
+}
+
+.navbar-toggler {
+  border-color: #ccc;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(204, 204, 204)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.img-logo {
+  height: 32px;
+  margin-right: 10px;
+}
+
+a,
+a:hover,
+a:focus {
+  color: #7c4dff;
+}
+
+.breadcrumb {
+  padding: 8px 15px;
+  border-bottom: 1px solid #dee2e6;
+}
+
 .js__toggle_content {
-	display: none;
+  display: none;
 }
-#js__listing_table {
-	margin: 2rem 0;
-    font-size: 14px;
+
+table {
+  margin-top: 1rem;
+  font-size: 14px;
 }
-#js__listing_table tbody {
-    font-family: monospace;
+
+table tbody {
+  font-family: monospace;
 }
-#js__listing_table img {
-    margin-right: 10px;
+
+table img {
+  height: 24px;
 }
-#js__listing_table a:hover {
-    text-decoration: none;
+
+table a {
+  text-decoration: none;
+}
+
+table td:first-child {
+  width: 43px;
+}
+
+.table > :not(:first-child) {
+  border-top: 1px solid #dee2e6;
 }
 
 .list-unstyled {
-	padding-left: 15px;
+  padding-left: 15px;
 }
