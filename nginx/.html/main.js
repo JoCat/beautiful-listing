@@ -4,7 +4,7 @@
 "use strict";
 
 // Breadcrumbs
-const breadcrumbs_el = document.querySelector("#js__breadcrumbs");
+const breadcrumbs_el = document.querySelector(".breadcrumb");
 const breadcrumbs = location.pathname
   .split("/")
   .filter((word) => word.length > 0);
