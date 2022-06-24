@@ -1,8 +1,8 @@
 Options +Indexes
 IndexOptions Charset=UTF-8 FancyIndexing FoldersFirst HTMLTable IconsAreLinks IgnoreCase SuppressRules VersionSort SuppressHTMLPreamble SuppressDescription SuppressColumnSorting
-IndexIgnore .htaccess tpl
+IndexIgnore tpl
 HeaderName /tpl/header.html
-ReadmeName /tpl/footer.html
+ReadmeName /tpl/readme.html
 
 AddIcon /tpl/icons/folder.svg ^^DIRECTORY^^
 AddIcon /tpl/icons/folder-home.svg ..

@@ -1,4 +1,4 @@
-/* By JCat */
+/* By JoCat */
 /* Contacts: https://jocat.ru/ */
 
 body {
@@ -31,10 +31,14 @@ body {
   margin-right: 10px;
 }
 
-a,
+a {
+  color: #7c4dff;
+  text-decoration: none;
+}
+
 a:hover,
 a:focus {
-  color: #7c4dff;
+  color: #4400ff;
 }
 
 .breadcrumb {
