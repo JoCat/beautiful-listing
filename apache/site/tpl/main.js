@@ -3,6 +3,36 @@
 
 "use strict";
 
+// Navbar toggler
+const navbarToggler = document.querySelector(".navbar-toggler");
+navbarToggler.addEventListener("click", (event) => {
+  const nav = event.currentTarget.nextElementSibling;
+  if (nav.className.includes("collapsing")) return;
+
+  if (nav.className.includes("show")) {
+    // hide
+    nav.style.height = `${nav.scrollHeight}px`;
+    nav.scrollHeight; //reflow // Подсмотрел в коде бутстрапа)
+    nav.classList.add("collapsing");
+    nav.classList.remove("collapse", "show");
+    nav.style.height = "";
+    setTimeout(() => {
+      nav.classList.remove("collapsing");
+      nav.classList.add("collapse");
+    }, 300);
+  } else {
+    // show
+    nav.classList.remove("collapse");
+    nav.classList.add("collapsing");
+    nav.style.height = `${nav.scrollHeight}px`;
+    setTimeout(() => {
+      nav.classList.remove("collapsing");
+      nav.classList.add("collapse", "show");
+      nav.style.height = "";
+    }, 300);
+  }
+});
+
 // Breadcrumbs
 const breadcrumbsEl = document.querySelector(".breadcrumb");
 const breadcrumbs = location.pathname
@@ -42,8 +72,6 @@ document.querySelectorAll(".js__toggle_content").forEach((el) => {
 
 // Pretty table
 const table = document.querySelector("table");
-table.classList.add("table", "table-hover");
-
 const newHeader = table.createTHead();
 const header = table.querySelector("tr");
 newHeader.append(header);

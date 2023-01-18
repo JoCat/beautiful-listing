@@ -1,0 +1,166 @@
+/* By JoCat */
+/* Contacts: https://jocat.ru/ */
+
+body {
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+
+a {
+  color: #7c4dff;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #4400ff;
+}
+
+.navbar {
+  background-color: #393939;
+  padding: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: #eee;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  color: #ffde6b;
+}
+
+.logo-link {
+  font-size: 1.25rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 2rem;
+  margin-right: 0.75rem;
+}
+
+.navbar nav {
+  flex-basis: 100%;
+}
+
+.navbar nav a {
+  color: #eee;
+  padding: 0.5rem;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .collapse:not(.show) {
+    display: none;
+  }
+  .navbar nav a {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggler {
+    display: none;
+  }
+  .navbar nav {
+    display: flex !important;
+    flex-basis: auto;
+  }
+}
+
+.navbar-toggler {
+  background-color: transparent;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  list-style: none;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  float: left;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: "/";
+}
+
+.breadcrumb-item.active {
+  color: #6c757d;
+}
+
+.js__toggle_content {
+  display: none;
+}
+
+table {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tbody {
+  font-family: monospace;
+}
+
+table img {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+  margin-right: 0.75rem;
+}
+
+table td,
+table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding-left: 0.75rem;
+}
+
+.container {
+  padding: 0 0.75rem;
+}
+
+/* Другие варианты вырезаны, можно подсмотреть у того же Tailwind CSS */
+.h4,
+.h6 {
+  font-weight: 500;
+}
+.h4 {
+  font-size: 1.5rem;
+}
+.h6 {
+  font-size: 1.125rem;
+}
