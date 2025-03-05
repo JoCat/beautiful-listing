@@ -75,9 +75,16 @@ const table = document.querySelector("table");
 const header = table.querySelector("thead tr");
 
 const headers = ["Дата загрузки / изменения", "Размер файла", "Файл"];
-for (const el of table.querySelector("thead").querySelector("tr").children) {
+for (const el of header.children) {
   el.children[0].innerText = headers.pop();
 }
+
+const additionalHeaders = ["SHA512", "GOST"];
+additionalHeaders.forEach((el) => {
+  const th = document.createElement("th");
+  th.innerText = el;
+  header.append(th);
+});
 
 const tableBodyElList = table.querySelector("tbody").children;
 
@@ -89,7 +96,12 @@ for (const row of tableBodyElList) {
   const img = document.createElement("img");
   const filePath = link.attributes.href.value;
 
-  let fileType
+  if (link.innerText.endsWith(".sha512") || link.innerText.endsWith(".gost")) {
+    row.style.display = "none";
+    continue;
+  }
+
+  let fileType;
   if (filePath.endsWith("./")) {
     link.innerText = "..";
     fileType = "folder-home";
@@ -102,13 +114,47 @@ for (const row of tableBodyElList) {
   }
   img.src = "/.html/icons/" + fileType + ".svg";
   link.prepend(img);
+
+  ["sha512", "gost"].forEach(async (hashType) => {
+    const hash = await fetchHash(filePath, hashType);
+    const td = document.createElement("td");
+    if (hash == "-") {
+      td.innerText = "-";
+    } else {
+      const a = document.createElement("a");
+      a.href = "#";
+      a.addEventListener("click", () => createDialog(hash));
+      a.innerText = "🔑";
+      td.append(a);
+    }
+    row.append(td);
+  });
 }
 
 function formatFileSize(bytes) {
-  if (isNaN(bytes) || bytes == 0) return bytes
+  if (isNaN(bytes) || bytes == 0) return bytes;
   const k = 1024,
     dp = 0,
     sizes = ["Bytes", "KB", "MB", "GB"],
     i = Math.floor(Math.log(bytes) / Math.log(k));
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dp)) + " " + sizes[i];
+}
+
+async function fetchHash(filename, hash) {
+  if (filename.endsWith("/")) return "-";
+
+  const response = await fetch(`${filename}.${hash}`);
+  if (response.ok) return await response.text();
+
+  return "-";
+}
+
+const dialog = document.querySelector(".js__dialog");
+const closeDialog = dialog.querySelector("button");
+closeDialog.addEventListener("click", () => dialog.close());
+
+function createDialog(hash) {
+  const code = dialog.querySelector("code");
+  code.innerText = hash;
+  dialog.showModal();
 }

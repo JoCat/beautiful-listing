@@ -119,10 +119,13 @@ a:focus {
   display: none;
 }
 
-table {
+.table-overlay {
   margin-top: 1rem;
+  overflow: auto;
+}
+
+table {
   font-size: 0.875rem;
-  width: 100%;
   border-collapse: collapse;
 }
 
@@ -163,4 +166,47 @@ table th {
 }
 .h6 {
   font-size: 1.125rem;
+}
+
+dialog {
+  border: 1px solid #6c757d;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog[open],
+dialog[open]::backdrop {
+  animation: opacity-show 0.3s;
+}
+
+@keyframes opacity-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+dialog p {
+  font-size: 20px;
+  margin: 0;
+}
+
+dialog button {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid #dee2e6;
+  background-color: #fff;
+  color: #393939;
+  cursor: pointer;
+}
+
+dialog button:hover {
+  background-color: #393939;
+  color: #fff;
 }
