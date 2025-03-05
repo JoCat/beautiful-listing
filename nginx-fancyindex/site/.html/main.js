@@ -96,7 +96,7 @@ for (const row of tableBodyElList) {
   const img = document.createElement("img");
   const filePath = link.attributes.href.value;
 
-  if (link.innerText.endsWith(".sha512") || link.innerText.endsWith(".gost")) {
+  if (filePath.endsWith(".sha512") || filePath.endsWith(".gost")) {
     row.style.display = "none";
     continue;
   }
