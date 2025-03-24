@@ -94,7 +94,7 @@ for (const row of tableBodyElList) {
 
   const link = row.querySelector(".link a");
   const img = document.createElement("img");
-  const filePath = link.attributes.href.value;
+  const filePath = link.attributes.href.value.split("?").at(0);
 
   if (filePath.endsWith(".sha512") || filePath.endsWith(".gost")) {
     row.style.display = "none";
