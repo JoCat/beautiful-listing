@@ -162,7 +162,7 @@ closeDialog.addEventListener("click", () => dialog.close());
 
 const copyDialog = dialog.querySelector(".js__dialog_copy");
 copyDialog.addEventListener("click", () => {
-  navigator.clipboard.writeText(dialog.querySelector("code").innerText);
+  navigator.clipboard.writeText(dialog.querySelector("code").innerText.trim());
   copyDialog.innerText = "Скопировано!";
   setTimeout(() => (copyDialog.innerText = "Скопировать в буфер"), 1000);
 });
