@@ -103,7 +103,7 @@ for (const row of tableBodyElList) {
 
   if (filePath.toLowerCase() == "readme.md") {
     row.style.display = "none";
-    fetchReadme();
+    fetchReadme(filePath);
     continue;
   }
 
@@ -174,8 +174,8 @@ function createDialog(hash) {
 }
 
 const readme = document.querySelector(".js__readme");
-async function fetchReadme() {
-  const response = await fetch(`${location.pathname}readme.md`);
+async function fetchReadme(filename) {
+  const response = await fetch(`${location.pathname}${filename}`);
   let text = "";
   if (response.ok) text = await response.text();
   if (text.length === 0) {
