@@ -96,7 +96,7 @@ for (const row of tableBodyElList) {
   const img = document.createElement("img");
   const filePath = link.attributes.href.value.split("?").at(0);
 
-  if (filePath.endsWith(".sha512") || filePath.endsWith(".gost")) {
+  if (filePath.endsWith(".sha512") || filePath.endsWith(".gost") || filePath.toLowerCase() == "readme.md") {
     row.style.display = "none";
     continue;
   }
@@ -166,3 +166,18 @@ function createDialog(hash) {
   code.innerText = hash;
   dialog.showModal();
 }
+
+const readme = document.querySelector(".js__readme");
+async function fetchReadme() {
+  console.log(location.pathname);
+
+  const response = await fetch(`${location.pathname}readme.md`);
+  let text = "";
+  if (response.ok) text = await response.text();
+  if (text.length === 0) {
+    readme.style.display = "none";
+    return;
+  }
+  readme.innerHTML = DOMPurify.sanitize(marked.parse(text));
+}
+fetchReadme();
