@@ -150,8 +150,15 @@ async function fetchHash(filename, hash) {
 }
 
 const dialog = document.querySelector(".js__dialog");
-const closeDialog = dialog.querySelector("button");
+const closeDialog = dialog.querySelector(".js__dialog_close");
 closeDialog.addEventListener("click", () => dialog.close());
+
+const copyDialog = dialog.querySelector(".js__dialog_copy");
+copyDialog.addEventListener("click", () => {
+  navigator.clipboard.writeText(dialog.querySelector("code").innerText);
+  copyDialog.innerText = "Скопировано!";
+  setTimeout(() => (copyDialog.innerText = "Скопировать в буфер"), 1000);
+});
 
 function createDialog(hash) {
   const code = dialog.querySelector("code");
