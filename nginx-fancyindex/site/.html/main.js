@@ -110,11 +110,8 @@ for (const row of tableBodyElList) {
   } else if (filePath.endsWith("jar")) {
     fileType = "java";
   } else {
-    if (filePath.split(".").length > 1) {
-      fileType = filePath.split(".").at(-1);
-    } else {
-      fileType = "file";
-    }
+    const splitedPath = filePath.split(".");
+    fileType = splitedPath.length > 1 ? splitedPath.at(-1) : "file";
   }
   img.src = "/.html/icons/" + fileType + ".svg";
   link.prepend(img);
