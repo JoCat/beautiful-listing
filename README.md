@@ -1,4 +1,4 @@
-# Beautiful listing
+# Box Template 4.0
 
 Шаблоны для красивого листинга файлов для apache и nginx (+ fancyindex)
 
