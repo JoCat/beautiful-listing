@@ -1,7 +1,32 @@
 /* By JoCat */
 /* Contacts: https://jocat.ru/ */
 
+html {
+  --background-color: #fff;
+  --text-color: #222;
+  --link-color: #7c4dff;
+  --link-hover-color: #4400ff;
+  --navbar-bg-color: #333;
+  --navbar-toggler-color: #ddd;
+  --dark-toggler-bg-color: #fff2;
+  --dark-toggler-color: #facc15;
+  --border-color: #eee;
+}
+
+html.dark {
+  --background-color: #282828;
+  --text-color: #eee;
+  --navbar-bg-color: #222;
+  --navbar-toggler-color: #777;
+  --border-color: #444;
+}
+
+* {
+  color: var(--text-color);
+}
+
 body {
+  background-color: var(--background-color);
   scroll-behavior: smooth;
   line-height: 1.5;
 }
@@ -17,7 +42,7 @@ a:focus {
 }
 
 .navbar {
-  background-color: #393939;
+  background-color: var(--navbar-bg-color);
   padding: 0.75rem;
   display: flex;
   flex-wrap: wrap;
@@ -66,9 +91,11 @@ a:focus {
     display: flex;
     flex-direction: column;
   }
+
   .collapse:not(.show) {
     display: none;
   }
+
   .navbar nav a {
     padding-left: 0;
     padding-right: 0;
@@ -79,6 +106,7 @@ a:focus {
   .navbar-toggler {
     display: none;
   }
+
   .navbar nav {
     display: flex !important;
     flex-basis: auto;
@@ -86,9 +114,39 @@ a:focus {
 }
 
 .navbar-toggler {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: none;
+  padding: 0;
+  cursor: pointer;
   background-color: transparent;
-  border: 1px solid #dee2e6;
-  border-radius: 0.25rem;
+}
+
+.navbar-toggler .icon,
+.navbar-toggler .icon::before,
+.navbar-toggler .icon::after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: var(--navbar-toggler-color);
+  border-radius: 4px;
+  left: 0;
+}
+
+.navbar-toggler .icon {
+  top: 14px;
+}
+
+.navbar-toggler .icon::before {
+  content: "";
+  top: -10px;
+}
+
+.navbar-toggler .icon::after {
+  content: "";
+  top: 10px;
 }
 
 .breadcrumb {
@@ -97,14 +155,14 @@ a:focus {
   margin-top: 0;
   list-style: none;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.breadcrumb-item + .breadcrumb-item {
+.breadcrumb-item+.breadcrumb-item {
   padding-left: 0.5rem;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item+.breadcrumb-item::before {
   float: left;
   padding-right: 0.5rem;
   color: #6c757d;
@@ -131,8 +189,8 @@ table tbody {
 }
 
 table img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   vertical-align: middle;
   margin-right: 0.75rem;
 }
@@ -141,7 +199,16 @@ table td,
 table th {
   text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid var(--border-color);
+}
+
+table .link {
+  width: 60%;
+}
+
+table .size,
+table .date {
+  width: 20%;
 }
 
 .list-unstyled {
@@ -153,14 +220,25 @@ table th {
   padding: 0 0.75rem;
 }
 
-/* Другие варианты вырезаны, можно подсмотреть у того же Tailwind CSS */
-.h4,
-.h6 {
-  font-weight: 500;
+/* Theme toggle */
+.theme-toggle-btn {
+  border-radius: 50%;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--dark-toggler-bg-color);
+  fill: var(--dark-toggler-color);
+  margin-left: auto;
+  margin-right: 1rem;
 }
-.h4 {
-  font-size: 1.5rem;
+
+.theme-toggle-svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
-.h6 {
-  font-size: 1.125rem;
+
+.hidden {
+  display: none;
 }

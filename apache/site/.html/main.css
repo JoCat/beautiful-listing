@@ -1,0 +1,256 @@
+/* By JoCat */
+/* Contacts: https://jocat.ru/ */
+
+html {
+  --background-color: #fff;
+  --text-color: #222;
+  --link-color: #7c4dff;
+  --link-hover-color: #4400ff;
+  --navbar-bg-color: #333;
+  --navbar-toggler-color: #ddd;
+  --dark-toggler-bg-color: #fff2;
+  --dark-toggler-color: #facc15;
+  --border-color: #eee;
+}
+
+html.dark {
+  --background-color: #282828;
+  --text-color: #eee;
+  --navbar-bg-color: #222;
+  --navbar-toggler-color: #777;
+  --border-color: #444;
+}
+
+* {
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--background-color);
+  scroll-behavior: smooth;
+  line-height: 1.5;
+}
+
+a {
+  color: #7c4dff;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #4400ff;
+}
+
+.navbar {
+  background-color: var(--navbar-bg-color);
+  padding: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: #eee;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  color: #ffde6b;
+}
+
+.logo-link {
+  font-size: 1.25rem;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 2rem;
+  margin-right: 0.75rem;
+}
+
+.navbar nav {
+  flex-basis: 100%;
+}
+
+.navbar nav a {
+  color: #eee;
+  padding: 0.5rem;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .collapse:not(.show) {
+    display: none;
+  }
+
+  .navbar nav a {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-toggler {
+    display: none;
+  }
+
+  .navbar nav {
+    display: flex !important;
+    flex-basis: auto;
+  }
+}
+
+.navbar-toggler {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.navbar-toggler .icon,
+.navbar-toggler .icon::before,
+.navbar-toggler .icon::after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: var(--navbar-toggler-color);
+  border-radius: 4px;
+  left: 0;
+}
+
+.navbar-toggler .icon {
+  top: 14px;
+}
+
+.navbar-toggler .icon::before {
+  content: "";
+  top: -10px;
+}
+
+.navbar-toggler .icon::after {
+  content: "";
+  top: 10px;
+}
+
+.navbar-toggler.open .icon {
+  transition-duration: 0.5s;
+  background: transparent;
+}
+
+.navbar-toggler.open .icon:before {
+  transform: rotateZ(45deg) translate(7px, 7px);
+}
+
+.navbar-toggler.open .icon:after {
+  transform: rotateZ(-45deg) translate(7px, -7px);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0;
+  list-style: none;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb-item+.breadcrumb-item {
+  padding-left: 0.5rem;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  float: left;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: "/";
+}
+
+.breadcrumb-item.active {
+  color: #6c757d;
+}
+
+.js__toggle_content {
+  display: none;
+}
+
+table {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table img {
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+}
+
+table td,
+table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+table td {
+  font-family: monospace;
+}
+
+table th:nth-child(2) {
+  width: 60%;
+}
+
+table th:nth-child(3),
+table th:nth-child(4) {
+  width: 20%;
+}
+
+.list-unstyled {
+  list-style: none;
+  padding-left: 0.75rem;
+}
+
+.container {
+  padding: 0 0.75rem;
+}
+
+/* Theme toggle */
+.theme-toggle-btn {
+  border-radius: 50%;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--dark-toggler-bg-color);
+  fill: var(--dark-toggler-color);
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.theme-toggle-svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}

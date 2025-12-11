@@ -1,4 +1,4 @@
-# Beautiful listing template for Nginx + FancyIndex
+# Box template for Nginx + FancyIndex
 
 Содержимое папки `site` загружаете в корень папки сайта, с которого вы будуте отдавать файлы
 

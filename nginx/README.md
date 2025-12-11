@@ -1,4 +1,4 @@
-# Beautiful listing template for Nginx
+# Box template for Nginx
 
 Содержимое папки `site` загружаете в корень папки сайта, с которого вы будуте отдавать файлы.
 

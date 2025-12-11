@@ -1,0 +1,14 @@
+{
+  "name": "box-listing",
+  "version": "4.0.0",
+  "description": "Шаблоны для красивого листинга файлов для apache и nginx (+ fancyindex)",
+  "scripts": {
+    "dev": "npm run build -- --watch",
+    "build": "esbuild apache/site/.html/main=src/js/apache.js nginx/site/.html/main=src/js/nginx.js nginx-fancyindex/site/.html/main=src/js/fancyindex.js --bundle --outdir=. --charset=utf8"
+  },
+  "author": "JoCat",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.27.1"
+  }
+}
