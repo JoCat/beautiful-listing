@@ -1,6 +1,6 @@
 {
   "name": "box-listing",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Шаблоны для красивого листинга файлов для apache и nginx (+ fancyindex)",
   "scripts": {
     "dev": "npm run build -- --watch",
